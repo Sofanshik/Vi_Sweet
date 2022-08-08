@@ -1,0 +1,42 @@
+{% extends 'base_sample.html' %}
+
+{% block linkcss %}<link rel="stylesheet" href="../static/css/list_of_order_css.css">{% endblock %}
+{% block title %}Vi-Sweet Cakes{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="title">Шановний(а) {{ request.user.first_name }}, це ваш список замовлень<br>
+        Ви можете дізнатися про статус замовленя за кольором при наведені: <br>
+        Синій - нове замовлення, помаранчевий - готується, червоний - відмінений, зелений - завершено. 
+    </div>
+
+        <div class="catalog__items">
+            {% for order in orders %}
+                {% if order.status == 'NEW' or order.status == 'New' %}
+                    <div class="catalog__items__item">
+                        Номер замовлення: {{ order.id }} <br>
+                        На яку дату треба виконати замовлення: {{ order.time_date_order }} <br>
+                        Сума замовлення: {{ order.prise_sum }} <br>
+                    </div>
+                {% elif order.status == 'Done' or order.status == 'DONE' %}
+                    <div class="catalog__items__item__success">
+                        Номер замовлення: {{ order.id }} <br>
+                        На яку дату треба виконати замовлення: {{ order.time_date_order }} <br>
+                        Сума замовлення: {{ order.prise_sum }} <br>
+                    </div>
+                {% elif order.status == 'In Progress' or order.status == 'InPROGRESS' %}
+                    <div class="catalog__items__item__progress">
+                        Номер замовлення: {{ order.id }} <br>
+                        На яку дату треба виконати замовлення: {{ order.time_date_order }} <br>
+                        Сума замовлення: {{ order.prise_sum }} <br>
+                    </div>
+                {% elif order.status == 'Declined' or order.status == 'DECLINED' %}
+                    <div class="catalog__items__item__decline">
+                        Номер замовлення: {{ order.id }} <br>
+                        На яку дату треба виконати замовлення: {{ order.time_date_order }} <br>
+                        Сума замовлення: {{ order.prise_sum }} <br>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+.container{
+    background-image: url("../img/background_prof2.png");
+    background-position-y: -200px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.profile{
+    display: flex;
+    color: #FFFFFF;
+}
+
+.profile__lable{
+    margin-left: 15%;
+    width: 40%;
+}
+
+.profile_lable{
+    list-style: none;
+}
+
+.profile_lable li::before{
+    color: #FCCD3C;
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em;
+}
+
+.profile_lable li{
+    padding: 25px 0;
+}
+
+.profile__info{
+    width: 49.9%;
+    margin-bottom: 126px;
+}
+
+.profile_info{
+    list-style: none;
+}
+
+.profile_info li{
+    padding: 25px 0;
+    list-style: none;
+
+}
+
+.title {
+    padding-top: 200px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btn{  
+    text-decoration: none;
+    background-color: #060731;
+    border: solid #1e1f66;
+    border-radius: 26px;
+    padding: 5px 32px;
+    color: #FFFFFF;
+}
+
+.btn:hover{
+    background-color: #fca23c;
+    border-color: #fca23c;
+}
+
+.btn_item{
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.btn_navbar:hover {
+    text-decoration: underline;
+    -webkit-text-decoration-color: #FCCD3C;
+    text-decoration-color: #ffffff;
+}

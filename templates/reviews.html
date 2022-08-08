@@ -1,0 +1,23 @@
+{% extends 'base_sample.html' %}
+
+{% block linkcss %}<link rel="stylesheet" href="../static/css/reviews_cs.css">{% endblock %}
+{% block title %}Vi-Sweet Reviews{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="title">Відгуки</div>
+
+        <div class="catalog__items">
+            {% for review in reviews %}
+                <div class="catalog__items__item">
+                    Оцінка: {{ review.mark }} Написав(ла): {{ review.username }} {{ review.last_name }} {{ review.first_name }}
+                    <br>
+                    {{ review.text }}
+                    <br>
+                </div>
+            {% endfor %}
+        </div>
+        {% if user.is_authenticated %}
+            <div class="btn_item"><a href="{% url 'create_review_url' %}" class="btn btn_navbar">Створити відгук</a></div>
+        {% endif %}
+    </div>
+{% endblock %}

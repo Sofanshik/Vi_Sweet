@@ -1,0 +1,31 @@
+{% extends 'base_sample.html' %}
+
+{% block linkcss %}<link rel="stylesheet" href="../static/css/customer_profile_cs.css">{% endblock %}
+{% block title %}Vi-Sweet Profile{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="title">Профіль</div>
+        <div class="profile">
+            <div class="profile__lable">
+                <ul class="profile_lable">
+                    <li>Username</li>
+                    <li>Ім'я</li>
+                    <li>Прізвище</li>
+                    <li>E-mail</li>
+                    <li>Phone Number</li>
+                </ul>
+            </div>
+            <div class="profile__info">
+                <ul class="profile_info">
+                    <li>{{ request.user.username }}</li>
+                    <li>{{ request.user.first_name }}</li>
+                    <li>{{ request.user.last_name }}</li>
+                    <li>{{ request.user.email }}</li>
+                    <li>{{ request.user.phone_number }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn_item"><a class="btn btn_navbar" href="{% url 'list_of_orders_url' %}">Ваші замовлення</a></div>
+    </div>
+{% endblock %}

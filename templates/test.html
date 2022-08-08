@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>This is catalog of cakes </h1>
+    {% for cake in cakes %}
+        {% if cake.cake_img %}
+            <img src="../static/img/{{ cake.cake_img }}" alt="image_cake" />
+        {% endif %}
+        {{ cake.title }}
+        {{ cake.description }}
+        <p></p>
+    {% endfor %}
+</body>
+</html>

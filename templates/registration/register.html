@@ -1,0 +1,23 @@
+{% extends 'base_sample.html' %}
+
+{% block linkcss %}<link rel="stylesheet" href="../../static/css/register_cs.css">{% endblock %}
+{% block title %}Vi-Sweet Login{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="title">Реєстрація</div>
+        <div class="outter">
+            <div class="content">
+                {% if form.errors %}
+                    <p>{{  form.errors.error }}</p>
+                {% endif %}
+        
+                <form action="{% url 'registration_url' %}" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn_submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

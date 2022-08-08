@@ -1,0 +1,37 @@
+{% extends 'base_sample.html' %}
+
+{% block linkcss %}<link rel="stylesheet" href="../static/css/catalog_of_cakes.css">{% endblock %}
+{% block title %}Vi-Sweet CatalogOfCakes{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="title">Каталог</div>
+
+        <div class="catalog__items">
+            {% for cake in cakes %}
+                <div class="catalog__items__item">
+                    {% if cake.cake_img %}
+                        <div class="catalog__items__item__img"><picture><img src="../static/img/{{ cake.cake_img }}" alt="img_cake" class="cakes"></picture></div>
+                    {% endif %}
+                    <div class="catalog__items__item__text">
+                        <div class="catalog__items__item__text__title">{{ cake.title }}</div>
+                        <div class="catalog__items__item__text__price">{{ cake.price }} грн/кг</div>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="catalog__items__item__btn"><a href="{% url 'create_order_url' %}" class="btn_detail_cake">Купити</a></div>
+                    {% else %}
+                        <div class="catalog__items__item__btn"><a href="{% url 'create_order_url' %}" class="btn_detail_cake disabled">Купити</a></div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{#    <h1>This is catalog of cakes </h1>#}
+{#    {% for cake in cakes %}#}
+{#        {% if cake.cake_img %}#}
+{#            <img src="../static/img/{{ cake.cake_img }}" alt="image_cake" />#}
+{#        {% endif %}#}
+{#        {{ cake.title }}#}
+{#        {{ cake.description }}#}
+{#        <p></p>#}
+{#    {% endfor %}#}
+{% endblock %}

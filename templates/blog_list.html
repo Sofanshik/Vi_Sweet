@@ -1,0 +1,19 @@
+{% extends 'base_sample.html' %}
+
+{% block linkcss %}<link rel="stylesheet" href="../static/css/blog_css.css">{% endblock %}
+{% block title %}Vi-Sweet Blog{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="title">Блог</div>
+        <div class="blog_items">
+            {% for blog_item in blog_items %}
+                <div class="blog_items__item">
+                    <div class="blog_items__item__title">{{ blog_item.title }}</div>
+                    <div class="blog_items__item__description">{{ blog_item.description }}</div>
+                </div>
+                <hr class="blog_items_line">
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
